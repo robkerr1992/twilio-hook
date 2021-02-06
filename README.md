@@ -1,6 +1,6 @@
 # Twilio Hook #
 ### Description ###
-A quick solution for exposing URL for Twilio to route requests to.
+A quick solution for exposing a URL for Twilio to route requests to in a Laravel App
 
 ### Installation ###
  

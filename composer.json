@@ -1,0 +1,44 @@
+{
+    "name": "rksugarfree/twilio-hook",
+    "description": "Exposes a URL for a Twilio webhook to route requests to.",
+    "homepage": "https://github.com/elevation-energy/twilio-hook",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Robert Kerr",
+            "email": "robertcrawleykerr@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "twilio/sdk": "^6.16"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.11",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rksugarfree\\TwilioHook\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rksugarfree\\TwilioHook\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "coverage": "./vendor/bin/phpunit --coverage-html build/coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rksugarfree\\TwilioHook\\TwilioHookServiceProvider"
+            ]
+        }
+    }
+}

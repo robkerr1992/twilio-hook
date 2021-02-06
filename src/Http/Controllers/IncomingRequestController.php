@@ -11,6 +11,6 @@ class IncomingRequestController extends Controller
     {
         $requestHandler->handle($request);
 
-        return response();
+        return response([], 200);
     }
 }

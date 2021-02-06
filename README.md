@@ -1,8 +1,8 @@
-#Twilio Hook
-###Description
+# Twilio Hook #
+### Description ###
 A quick solution for exposing URL for Twilio to route requests to.
 
-###Installation
+### Installation ###
  
 1. ``` composer require rksugarfree/twilio-hook ```
 2. ``` php artisan vendor:publish ``` (select 'twilio-hook' key)
@@ -10,7 +10,7 @@ A quick solution for exposing URL for Twilio to route requests to.
 4. Fill out .env ``` APP_URL ```
 5. Create your own implementation of ``` \Rksugarfree\TwilioHook\RequestHandler.php ```
 6. Bind it in the service container ``` app/Providers/AppServiceProvider.php ```
-7. Point webhook requests as ``` '${yourapp.url}/api/twilio-hook/webhook' ```
+7. Point webhook requests to ``` '${yourapp.url}/api/twilio-hook/webhook' ```
 ```
 app/Models/${YourClassThatImplementsRequestHandler}.php
 

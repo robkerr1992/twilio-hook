@@ -1,6 +1,6 @@
 #Twilio Hook
 ###Description
-A quick solution to verifying and handling incoming Twilio Webhook requests.
+A quick solution for exposing URL for Twilio to route requests to.
 
 ###Installation
  

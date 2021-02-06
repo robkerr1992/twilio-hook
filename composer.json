@@ -1,6 +1,6 @@
 {
     "name": "rksugarfree/twilio-hook",
-    "description": "Exposes a URL for a Twilio webhook to route requests to.",
+    "description": "A quick solution for exposing URL for Twilio to route requests to.",
     "homepage": "https://github.com/elevation-energy/twilio-hook",
     "license": "proprietary",
     "authors": [

@@ -10,14 +10,30 @@ class VerifyTwilioRequest
 {
     public function handle(Request $request, Closure $next)
     {
-        $validator = new RequestValidator(config('twilio-hook.auth_token'));
-        $ssl = config_path('twilio-hook.https') ? 'https' : 'http';
-        $url = "$ssl://{$request->header('Host')}/twilio-hook/webhook";
-
-        if(! $validator->validate($request->header('X-Twilio-Signature'), $url, $request->all())) {
-            return response([], 403);
+        if ($this->dontValidateRequests() || $this->requestIsValid($request)) {
+            return $next($request);
         }
 
-        return $next($request);
+        info('Fail: '.$request->get('Body'));
+        return response([], 403);
+    }
+
+    private function requestIsValid(Request $request): bool
+    {
+        $validator = resolve(RequestValidator::class);
+
+        return $validator->validate(
+            $request->header('X-Twilio-Signature'),
+            "{$request->header('X-Forwarded-Proto')}://{$request->header('Host')}/twilio-hook/webhook",
+            $request->all()
+        );
+    }
+
+    /**
+     * @return bool
+     */
+    private function dontValidateRequests(): bool
+    {
+        return !config('twilio-hook.dont_validate_requests');
     }
 }

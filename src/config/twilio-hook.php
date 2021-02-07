@@ -2,5 +2,5 @@
 
 return [
     'auth_token' => env('TWILIO_AUTH_TOKEN'),
-    'https' => true
+    'validate_requests' => false
 ];
